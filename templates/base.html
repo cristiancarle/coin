@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SchoolCoin</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> |
+        <a href="{{ url_for('asignar_coins') }}">Asignar Coins</a> |
+        <!-- ojo: saldo necesita id, lo podés dejar fijo o quitar -->
+        <a href="{{ url_for('saldo', id_estudiante=1) }}">Consultar Saldo</a> |
+        <a href="{{ url_for('canjear_form', id_estudiante=1) }}">Canjear Coins</a> |
+        <a href="{{ url_for('listar_alumnos') }}">Listar Alumnos</a> |
+        <a href="{{ url_for('cargar_alumnos') }}">Cargar Alumnos</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

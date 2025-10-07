@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Listado de Alumnos</h2>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Coins</th>
+        <th>Acciones</th>
+    </tr>
+    {% for est in estudiantes %}
+    <tr>
+        <td>{{ est.id }}</td>
+        <td>{{ est.nombre }}</td>
+        <td>{{ est.coins }}</td>
+        <td>
+            <a href="{{ url_for('saldo', id_estudiante=est.id) }}">Ver Saldo</a> |
+            <a href="{{ url_for('canjear_form', id_estudiante=est.id) }}">Canjear</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

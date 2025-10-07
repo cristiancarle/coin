@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canjear SchoolCoins</title>
+</head>
+<body>
+    <h1>Canjear SchoolCoins para Examen</h1>
+    
+    <form method="POST" action="/canjear">
+        <input type="hidden" name="id_estudiante" value="{{ estudiante['id'] }}">
+        
+        <label for="examen">Nombre del examen:</label>
+        <input type="text" name="examen" id="examen" required>
+        <br><br>
+        
+        <label for="coins">Cantidad de coins a usar:</label>
+        <input type="number" name="coins" id="coins" step="0.1" required>
+        <br><br>
+        
+        <input type="submit" value="Canjear Coins">
+    </form>
+    
+    <p>Saldo actual: <strong>{{ estudiante['coins'] }}</strong> coins</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asignar SchoolCoins</title>
+</head>
+<body>
+    <h1>Asignar SchoolCoins a Estudiantes</h1>
+    
+    <form method="POST">
+        <label for="id_estudiante">Seleccionar estudiante:</label>
+        <select name="id_estudiante" id="id_estudiante">
+            {% for est in estudiantes %}
+                <option value="{{ est['id'] }}">{{ est['nombre'] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="trabajo">Nombre del trabajo:</label>
+        <input type="text" name="trabajo" id="trabajo" required>
+        <br><br>
+        <label for="coins">Cantidad de coins a asignar:</label>
+        <input type="number" name="coins" id="coins" step="0.1" required>
+        <br><br>
+        <input type="submit" value="Asignar Coins">
+    </form>
+    
+    <h2>Lista de estudiantes</h2>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Coins actuales</th>
+        </tr>
+        {% for est in estudiantes %}
+        <tr>
+            <td>{{ est['nombre'] }}</td>
+            <td>{{ est['coins'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
